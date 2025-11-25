@@ -21,8 +21,14 @@
     </style>
     <script src="data.js"></script>
     <script>
+        // Password
+        var password = "colinistderbeste";
+        var input = prompt("Enter password:");
+        if (input !== password) {
+            document.body.innerHTML = "Access denied";
+        }
         // Function to randomize content on page load
-        window.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('DOMContentLoaded', function () {
             // Set random day number (1-24)
             const randomDay = Math.floor(Math.random() * 24) + 1;
             const dayElement = document.getElementById('day-number');
@@ -86,7 +92,8 @@
                                         </p>
                                         <p
                                             style="margin: 8px 0 16px; font-family: Arial, sans-serif; font-size: 13px; color: var(--color-accent); text-align: center; letter-spacing: 1px;">
-                                            TÜRCHEN <span id="day-number">{{DAY_NUMBER}}</span> • CLUBBAYER ADVENTSKALENDER
+                                            TÜRCHEN <span id="day-number">{{DAY_NUMBER}}</span> • CLUBBAYER
+                                            ADVENTSKALENDER
                                         </p>
 
                                     </td>
@@ -106,10 +113,12 @@
 
                                 <!-- PRIZE / WIN -->
                                 <tr>
-                                    <td align="center" style="padding: 20px 0 10px 0; background-color: var(--color-white);">
+                                    <td align="center"
+                                        style="padding: 20px 0 10px 0; background-color: var(--color-white);">
                                         <a href="https://youtu.be/xvFZjo5PgG0?si=oN2-_Iw3clhprcai" target="_blank"
-                                style="display: block; text-decoration: none;">
-                                            <img id="prize-image" src="{{PRIZE_IMAGE}}" alt="PRIZE_IMAGE" width="560" style="
+                                            style="display: block; text-decoration: none;">
+                                            <img id="prize-image" src="{{PRIZE_IMAGE}}" alt="PRIZE_IMAGE" width="560"
+                                                style="
                                                 display: block;
   width: 100%;
   max-width: 360px; /* or 400px if you like it bigger */
@@ -215,7 +224,8 @@
                                 <!-- Fun Facts -->
                                 <tr>
                                     <td style="padding-top: 10px; padding-bottom: 10px;">
-                                        <p style="font-size:14px; color: var(--color-accent); text-align:center; margin:12px 0 0;">
+                                        <p
+                                            style="font-size:14px; color: var(--color-accent); text-align:center; margin:12px 0 0;">
                                             🎄 Fun Fact: <span id="fun-fact">{{FUN_FACT}}</span>
                                         </p>
 
@@ -287,7 +297,8 @@
                                         <p
                                             style="margin: 0; font-family: Arial, sans-serif; font-size: 13px; line-height: 1.6; color: var(--color-text-medium);">
                                             Mit vorweihnachtlichen Gr&uuml;&szlig;en<br />
-                                            <strong style="color: var(--color-primary);">Dein Bayer eLearning / ClubBayer
+                                            <strong style="color: var(--color-primary);">Dein Bayer eLearning /
+                                                ClubBayer
                                                 Team</strong>
                                         </p>
                                     </td>
@@ -310,7 +321,8 @@
                     <!-- Footer Bar -->
                     <tr>
                         <td align="center" style="padding: 20px; background-color: var(--color-accent);">
-                            <p style="margin: 0; font-family: Arial, sans-serif; font-size: 12px; color: var(--color-white);">
+                            <p
+                                style="margin: 0; font-family: Arial, sans-serif; font-size: 12px; color: var(--color-white);">
                                 &copy; Bayer eLearning Portal | ClubBayer
                             </p>
                         </td>
