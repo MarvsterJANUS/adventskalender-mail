@@ -18,15 +18,45 @@
             --color-black: #000000;
             --color-border: #e6e6e6;
         }
+
+        /* hide body until password check is done */
+        body {
+            visibility: hidden;
+        }
     </style>
     <script src="data.js"></script>
     <script>
-        // Password
-        var password = "colinistderbeste";
-        var input = prompt("Enter password:");
-        if (input !== password) {
-            document.body.innerHTML = "Access denied";
-        }
+        (function () {
+            const PASSWORD = "colinistderbeste"; // <--- change this to your password
+            const STORAGE_KEY = "adventAccessGranted";
+
+            window.addEventListener("DOMContentLoaded", function () {
+
+                // Already unlocked?
+                try {
+                    if (localStorage.getItem(STORAGE_KEY) === "true") {
+                        document.body.style.visibility = "visible";
+                        return;
+                    }
+                } catch (e) { }
+
+                const entered = prompt("Bitte Passwort eingeben:");
+
+                if (entered === PASSWORD) {
+                    try {
+                        localStorage.setItem(STORAGE_KEY, "true");
+                    } catch (e) { }
+                    document.body.style.visibility = "visible";
+                } else {
+                    // Redirect on wrong password
+                    window.location.href = "https://www.youtube.com/watch?v=xvFZjo5PgG0&autoplay=1&mute=1";
+                }
+            });
+        })();
+    </script>
+
+
+    <script>
         // Function to randomize content on page load
         window.addEventListener('DOMContentLoaded', function () {
             // Set random day number (1-24)
