@@ -1,0 +1,325 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DU BIST EIN GEWINNER</title>
+    <style>
+        :root {
+            --color-background: #f4f4f4;
+            --color-white: #ffffff;
+            --color-primary: #132b41;
+            --color-accent: #95000d;
+            --color-text-dark: #333333;
+            --color-text-medium: #666666;
+            --color-text-light: #999999;
+            --color-black: #000000;
+            --color-border: #e6e6e6;
+        }
+    </style>
+    <script src="data.js"></script>
+    <script>
+        // Function to randomize content on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            // Set random day number (1-24)
+            const randomDay = Math.floor(Math.random() * 24) + 1;
+            const dayElement = document.getElementById('day-number');
+            if (dayElement) {
+                dayElement.textContent = randomDay;
+            }
+
+            // Set random fun fact
+            const randomFunFact = funFacts[Math.floor(Math.random() * funFacts.length)];
+            const funFactElement = document.getElementById('fun-fact');
+            if (funFactElement) {
+                funFactElement.textContent = randomFunFact;
+            }
+
+            // Set random prize
+            const randomPrize = prizes[Math.floor(Math.random() * prizes.length)];
+            const prizeNameElement = document.getElementById('prize-name');
+            const prizeImageElement = document.getElementById('prize-image');
+            if (prizeNameElement) {
+                prizeNameElement.textContent = randomPrize.name;
+            }
+            if (prizeImageElement) {
+                prizeImageElement.src = randomPrize.image;
+                prizeImageElement.alt = randomPrize.name;
+            }
+        });
+    </script>
+</head>
+
+<body style="margin: 0; padding: 0; background-color: var(--color-background);">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: var(--color-background);">
+        <tr>
+            <td align="center" style="padding: 40px 0;">
+                <!-- Main Container -->
+                <table border="0" cellpadding="0" cellspacing="0" width="600"
+                    style="background-color: var(--color-white); border-radius: 8px; overflow: hidden;">
+
+                    <!-- Header with Animated GIF -->
+                    <tr>
+                        <td align="center" style="padding: 0; background-color: var(--color-primary);">
+                            <a href="https://youtu.be/xvFZjo5PgG0?si=oN2-_Iw3clhprcai" target="_blank"
+                                style="display: block; text-decoration: none;">
+                                <img src="hero_gif.gif" alt="ClubBayer Adventskalender" width="600"
+                                    style="display: block; width: 100%; max-width: 600px; border: 0; line-height: 0; font-size: 0;">
+                            </a>
+                        </td>
+                    </tr>
+
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 0px 30px; padding-top: 40px; padding-bottom: 12px;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+                                <!-- Headline -->
+                                <tr>
+                                    <td style="padding-bottom: 10px;">
+                                        <p
+                                            style="margin: 0; font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; line-height: 1.4; color: var(--color-primary); text-align: center;">
+                                            🎄 GLÜCKWUNSCH 🎄<br>DU HAST HEUTE GEWONNEN!
+
+                                        </p>
+                                        <p
+                                            style="margin: 8px 0 16px; font-family: Arial, sans-serif; font-size: 13px; color: var(--color-accent); text-align: center; letter-spacing: 1px;">
+                                            TÜRCHEN <span id="day-number">{{DAY_NUMBER}}</span> • CLUBBAYER ADVENTSKALENDER
+                                        </p>
+
+                                    </td>
+                                </tr>
+
+                                <!-- Intro Text -->
+                                <tr>
+                                    <td style="padding-bottom: 20px;">
+                                        <p
+                                            style="margin: 0; font-family: Arial, sans-serif; font-size: 15px; line-height: 1.6; color: var(--color-text-dark); text-align: center;">
+                                            Vielen Dank für Deine Teilnahme am
+                                            <strong>ClubBayer Online-Adventskalender</strong>.<br />
+                                            Hinter dem heutigen Türchen wartet ein besonderer Gewinn auf Dich.
+                                        </p>
+                                    </td>
+                                </tr>
+
+                                <!-- PRIZE / WIN -->
+                                <tr>
+                                    <td align="center" style="padding: 20px 0 10px 0; background-color: var(--color-white);">
+                                        <a href="https://youtu.be/xvFZjo5PgG0?si=oN2-_Iw3clhprcai" target="_blank"
+                                style="display: block; text-decoration: none;">
+                                            <img id="prize-image" src="{{PRIZE_IMAGE}}" alt="PRIZE_IMAGE" width="560" style="
+                                                display: block;
+  width: 100%;
+  max-width: 360px; /* or 400px if you like it bigger */
+  margin: 0 auto;
+  border-radius: 21px;
+  border: 0;
+  outline: none;
+  text-decoration: none;
+  -ms-interpolation-mode: bicubic;
+                                            ">
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                <!-- Prize Description -->
+                                <tr>
+                                    <td style="padding-bottom: 20px;">
+                                        <p
+                                            style="margin: 0; font-family: Arial, sans-serif; font-size: 15px; line-height: 1.6; color: var(--color-text-dark); text-align: center;">
+                                            <strong>Dein heutiger Gewinn:</strong><br />
+                                            <span id="prize-name" style="color: var(--color-primary);">
+                                                {{PRIZE_NAME}}
+                                            </span>
+                                        </p>
+                                    </td>
+                                </tr>
+
+                                <!-- Instructions Heading -->
+                                <tr>
+                                    <td style="padding-top: 10px; padding-bottom: 10px;">
+                                        <p
+                                            style="margin: 0; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; color: var(--color-primary);">
+                                            So löst Du Deinen Gewinn ein:
+                                        </p>
+                                    </td>
+                                </tr>
+
+                                <!-- Instructions List -->
+                                <tr>
+                                    <td style="padding-bottom: 20px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td style="padding: 5px 0;">
+                                                    <p
+                                                        style="margin: 0; font-family: Arial, sans-serif; font-size: 14px; line-height: 1.6; color: var(--color-text-dark);">
+                                                        <strong style="color: var(--color-accent);">1.</strong>
+                                                        Öffne den <strong>ClubBayer Adventskalender</strong> über die
+                                                        Website.
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 5px 0;">
+                                                    <p
+                                                        style="margin: 0; font-family: Arial, sans-serif; font-size: 14px; line-height: 1.6; color: var(--color-text-dark);">
+                                                        <strong style="color: var(--color-accent);">2.</strong>
+                                                        Klicke auf das heutige Türchen und wähle
+                                                        &bdquo;Gewinn einlösen&ldquo;.
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 5px 0;">
+                                                    <p
+                                                        style="margin: 0; font-family: Arial, sans-serif; font-size: 14px; line-height: 1.6; color: var(--color-text-dark);">
+                                                        <strong style="color: var(--color-accent);">3.</strong>
+                                                        Folge den angezeigten Schritten und bestätige Deine
+                                                        Kontaktdaten.
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 5px 0;">
+                                                    <p
+                                                        style="margin: 0; font-family: Arial, sans-serif; font-size: 14px; line-height: 1.6; color: var(--color-text-dark);">
+                                                        <strong style="color: var(--color-accent);">4.</strong>
+                                                        Oder über diesen Link:
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                <!-- CTA Button -->
+                                <tr>
+                                    <td align="center" style="padding-bottom: 12px;">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td align="center"
+                                                    style="border-radius: 4px; background-color: var(--color-accent);">
+                                                    <a href="https://youtu.be/xvFZjo5PgG0?si=oN2-_Iw3clhprcai"
+                                                        target="_blank"
+                                                        style="font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; color: var(--color-white); text-decoration: none; padding: 12px 24px; display: inline-block;">
+                                                        JETZT GEWINN EINLÖSEN
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                <!-- Fun Facts -->
+                                <tr>
+                                    <td style="padding-top: 10px; padding-bottom: 10px;">
+                                        <p style="font-size:14px; color: var(--color-accent); text-align:center; margin:12px 0 0;">
+                                            🎄 Fun Fact: <span id="fun-fact">{{FUN_FACT}}</span>
+                                        </p>
+
+
+                                    </td>
+                                </tr>
+
+                                <!-- Teaser Section -->
+                                <tr>
+                                    <td style="padding-top: 10px; padding-bottom: 10px;">
+                                        <p
+                                            style="margin: 10px 0 0; font-family: Arial, sans-serif; font-size: 13px; line-height: 1.6; color: var(--color-text-medium); text-align: center;">
+                                            Übrigens: Morgen wartet schon das n&auml;chste Türchen auf Dich –
+                                            also schau wieder vorbei <br> und sichere Dir Deine Gewinnchancen!
+                                        </p>
+
+                                    </td>
+                                </tr>
+
+                                <!-- Important Notes -->
+                                <tr>
+                                    <td style="padding: 20px 0; border-top: 2px solid var(--color-border);">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td style="padding-bottom: 10px;">
+                                                    <p
+                                                        style="margin: 0; font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; color: var(--color-primary);">
+                                                        Wichtige Hinweise:
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 3px 0;">
+                                                    <p
+                                                        style="margin: 0; font-family: Arial, sans-serif; font-size: 13px; line-height: 1.5; color: var(--color-black);">
+                                                        &bull; Der Gewinn ist nur für den im Adventskalender angegebenen
+                                                        Zeitraum einlösbar.
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 3px 0;">
+                                                    <p
+                                                        style="margin: 0; font-family: Arial, sans-serif; font-size: 13px; line-height: 1.5; color: var(--color-black);">
+                                                        &bull; Eine Barauszahlung des Gewinns ist ausgeschlossen.
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 3px 0;">
+                                                    <p
+                                                        style="margin: 0; font-family: Arial, sans-serif; font-size: 13px; line-height: 1.5; color: var(--color-black);">
+                                                        &bull; Weitere Informationen findest Du in den
+                                                        Teilnahmebedingungen auf der ClubBayer Website oder <a
+                                                            href="https://youtu.be/xvFZjo5PgG0?si=oN2-_Iw3clhprcai"
+                                                            target="_blank"
+                                                            style="color: var(--color-accent); text-decoration: none;"><u>hier</u></a>.
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                <!-- Bye -->
+                                <tr>
+                                    <td style="padding-top: 18px; padding-bottom: 12px;">
+
+                                        <p
+                                            style="margin: 0; font-family: Arial, sans-serif; font-size: 13px; line-height: 1.6; color: var(--color-text-medium);">
+                                            Mit vorweihnachtlichen Gr&uuml;&szlig;en<br />
+                                            <strong style="color: var(--color-primary);">Dein Bayer eLearning / ClubBayer
+                                                Team</strong>
+                                        </p>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 12px;">
+                                        <p
+                                            style="margin: 0; font-family: Arial, sans-serif; font-size: 11px; line-height: 1.5; color: var(--color-text-light); text-align: center;">
+                                            Eine Aktion von <strong>ClubBayer</strong> im Rahmen des Bayer eLearning
+                                            Angebots.
+                                        </p>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Footer Bar -->
+                    <tr>
+                        <td align="center" style="padding: 20px; background-color: var(--color-accent);">
+                            <p style="margin: 0; font-family: Arial, sans-serif; font-size: 12px; color: var(--color-white);">
+                                &copy; Bayer eLearning Portal | ClubBayer
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
