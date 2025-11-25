@@ -26,34 +26,74 @@
     </style>
     <script src="data.js"></script>
     <script>
-        (function () {
-            const PASSWORD = "colinistderbeste"; // <--- change this to your password
-            const STORAGE_KEY = "adventAccessGranted";
+(function () {
+    const PASSWORD = "colinistderbeste";
+    const STORAGE_KEY = "adventAccessGranted";
 
-            window.addEventListener("DOMContentLoaded", function () {
+    window.addEventListener("DOMContentLoaded", function () {
 
-                // Already unlocked?
-                try {
-                    if (localStorage.getItem(STORAGE_KEY) === "true") {
-                        document.body.style.visibility = "visible";
-                        return;
-                    }
-                } catch (e) { }
+        // If already unlocked before, show page immediately
+        try {
+            if (localStorage.getItem(STORAGE_KEY) === "true") {
+                document.body.style.visibility = "visible";
+                return;
+            }
+        } catch (e) {}
 
-                const entered = prompt("Bitte Passwort eingeben:");
+        // Ask for password
+        const entered = prompt("Bitte Passwort eingeben:");
 
-                if (entered === PASSWORD) {
-                    try {
-                        localStorage.setItem(STORAGE_KEY, "true");
-                    } catch (e) { }
-                    document.body.style.visibility = "visible";
-                } else {
-                    // Redirect on wrong password
-                    window.location.href = "play.html";
-                }
-            });
-        })();
-    </script>
+        // If correct password → show page normally
+        if (entered === PASSWORD) {
+            try {
+                localStorage.setItem(STORAGE_KEY, "true");
+            } catch (e) {}
+            document.body.style.visibility = "visible";
+            return;
+        }
+
+        // If wrong password → show popup + block access
+        document.body.innerHTML = `
+            <div style="
+                font-family: Arial, sans-serif;
+                background: #ffffff;
+                padding: 40px;
+                margin: 120px auto;
+                width: 320px;
+                border-radius: 12px;
+                box-shadow: 0 0 20px rgba(0,0,0,0.15);
+                text-align:center;">
+                
+                <h3 style="margin-bottom:20px; color:#95000d;">Korrektes Passwort!</h3>
+
+                <p style="margin-bottom:20px; color:#333;">
+                    Hier gehts zur Seite:
+                </p>
+
+                <button id="openVideo" style="
+                    background:#95000d;
+                    color:#fff;
+                    border:none;
+                    padding:12px 22px;
+                    border-radius:6px;
+                    cursor:pointer;
+                    font-size:14px;
+                    font-weight:bold;">
+                    Öffnen
+                </button>
+            </div>
+        `;
+
+        document.body.style.visibility = "visible";
+
+        document.getElementById("openVideo").addEventListener("click", function () {
+            window.open("play.html", "_blank");
+        });
+
+    });
+})();
+</script>
+
 
 
     <script>
